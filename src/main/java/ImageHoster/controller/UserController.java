@@ -43,7 +43,7 @@ public class UserController {
     //This method calls the business logic and after the user record is persisted in the database, directs to login page
     @RequestMapping(value = "users/registration", method = RequestMethod.POST)
     public String registerUser(User user, Model model) {
-        /*if (isValidPassword(user.getPassword())) {
+        if (isValidPassword(user.getPassword())) {
             userService.registerUser(user);
             return "users/login";
         }
@@ -52,9 +52,7 @@ public class UserController {
             model.addAttribute("User", user);
             model.addAttribute("passwordTypeError", error);
             return "users/registration";
-        }*/
-        userService.registerUser(user);
-        return "users/login";
+        }
     }
 
     //This controller method is called when the request pattern is of type 'users/login'
@@ -92,9 +90,9 @@ public class UserController {
         return "index";
     }
 
-    /*private boolean isValidPassword(String password) {
+    private boolean isValidPassword(String password) {
         // Regex to check valid password.
-        String regex = "^(?=.*[0-9])"+"(?=.*[a-zA-Z])"+ "(?=.*[@#$%^&-+=()])"+ ".{3,40}$";
+        String regex = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+])[A-Za-z\\d][A-Za-z\\d!@#$%^&*()_+]{7,19}$";
         // Compile the ReGex
         Pattern p = Pattern.compile(regex);
 
@@ -112,5 +110,5 @@ public class UserController {
         // Return if the password
         // matched the ReGex
         return m.matches();
-    }*/
+    }
 }

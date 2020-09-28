@@ -3,6 +3,7 @@ package ImageHoster.model;
 import javax.persistence.*;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 //@Entity annotation specifies that the corresponding class is a JPA entity
 @Entity
 //@Table annotation provides more options to customize the mapping.

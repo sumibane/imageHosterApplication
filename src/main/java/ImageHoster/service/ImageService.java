@@ -14,6 +14,7 @@ public class ImageService {
     @Autowired
     private ImageRepository imageRepository;
 
+    private List<Image> images = new ArrayList<>();
     //Call the getAllImages() method in the Repository and obtain a List of all the images in the database
     public List<Image> getAllImages() {
         return imageRepository.getAllImages();
@@ -22,14 +23,16 @@ public class ImageService {
 
     //The method calls the createImage() method in the Repository and passes the image to be persisted in the database
     public void uploadImage(Image image) {
+        image.setDate(new Date());
         imageRepository.uploadImage(image);
     }
 
 
     //The method calls the getImageByTitle() method in the Repository and passes the title of the image to be fetched
-    public Image getImageByTitle(String title) {
+    //Unused Method, commented
+    /*public Image getImageByTitle(String title) {
         return imageRepository.getImageByTitle(title);
-    }
+    }*/
 
     //The method calls the getImage() method in the Repository and passes the id of the image to be fetched
     public Image getImage(Integer imageId) {

@@ -93,22 +93,14 @@ public class UserController {
     private boolean isValidPassword(String password) {
         // Regex to check valid password.
         String regex = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+])[A-Za-z\\d][A-Za-z\\d!@#$%^&*()_+]{7,19}$";
-        // Compile the ReGex
         Pattern p = Pattern.compile(regex);
 
-        // If the password is empty
-        // return false
         if (password == null) {
             return false;
         }
 
-        // Pattern class contains matcher() method
-        // to find matching between given password
-        // and regular expression.
-        Matcher m = p.matcher(password);
 
-        // Return if the password
-        // matched the ReGex
+        Matcher m = p.matcher(password);
         return m.matches();
     }
 }
